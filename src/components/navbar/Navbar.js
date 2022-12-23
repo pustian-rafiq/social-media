@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import {   DarkModeOutlined, EmailOutlined, GridViewOutlined, HomeOutlined, NotificationsOutlined, PersonOutlined, SearchOutlined, WbSunnyOutlined } from "@mui/icons-material";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 const Navbar = () => {
 
   const {toggleDarkMode, darkMode} = useContext(DarkModeContext)
+  const {currentUser} = useContext(AuthContext);
   return (
     <div className="navbar">
       <div className="left">
@@ -34,7 +36,7 @@ const Navbar = () => {
           <NotificationsOutlined/>
           <div className="user">
             <img src="/images/login.jpg" alt="Profile" />
-            <span>Rafiqul Islam</span>
+            <span>{ currentUser?.name}</span>
           </div>
       </div>
        

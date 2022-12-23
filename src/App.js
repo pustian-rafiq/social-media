@@ -18,11 +18,14 @@ import HomePage from './pages/homepage/HomePage';
 import "./style.scss";
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
+import { AuthContext } from './context/authContext';
 
 const Layout = () => {
 
+  const {currentUser} = useContext(AuthContext);
   const {darkMode} = useContext(DarkModeContext);
 
+  console.log("darkMode", darkMode)
   return (
     <div className={`theme-${darkMode ? "dark" : "light"}`}>
       <Navbar/>
