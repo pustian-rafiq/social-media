@@ -15,10 +15,16 @@ import Navbar from './components/navbar/Navbar'
 import LeftBar from './components/leftbar/LeftBar'
 import RightBar from './components/rightbar/RightBar'
 import HomePage from './pages/homepage/HomePage';
+import "./style.scss";
+import { useContext } from 'react';
+import { DarkModeContext } from './context/darkModeContext';
 
 const Layout = () => {
+
+  const {darkMode} = useContext(DarkModeContext);
+
   return (
-    <div>
+    <div className={`theme-${darkMode ? "dark" : "light"}`}>
       <Navbar/>
       <div style={{display: 'flex'}}>
         <LeftBar/>
